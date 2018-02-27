@@ -12,12 +12,17 @@
           <span class="label label-danger" (click)="sumarLikes()">Likes {{likes}}</span>
         </p>
         <section class="ingredientes">
-          <h4>Ingredientes</h4>
-          <ol>
-            <li *ngFor="let ingre of ingredientes">
-              {{ingre}}
-            </li>
-          </ol>
+          <h4 (click)="showIngre()">Ingredientes
+            <span data-toggle="collapse" *ngIf="!show" data-target="#ingredientes" class="btnBajar glyphicon glyphicon-menu-down" aria-hidden="true"></span>
+            <span data-toggle="collapse" *ngIf="show" data-target="#ingredientes" class="btnBajar glyphicon glyphicon-menu-up" aria-hidden="true"></span>
+          </h4>
+          <div id="ingredientes" class="collapse">
+              <ol>
+                  <li *ngFor="let ingre of ingredientes">
+                    {{ingre}}
+                  </li>
+                </ol>
+          </div> 
         </section>
       </div>
     </div>

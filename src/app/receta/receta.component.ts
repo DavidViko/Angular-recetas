@@ -15,6 +15,7 @@ export class RecetaComponent implements OnInit {
   likes: number;
   isGlutenFree: boolean;
   ingredientes: string[];
+  show:boolean;
 
   constructor() {
     console.log('RecetaComponent constructor');
@@ -25,6 +26,7 @@ export class RecetaComponent implements OnInit {
     this.imagen = 'https://masdemadrid.com/wp-content/uploads/2017/03/bocadillo-calamares-560x314.jpg';
     this.isGlutenFree = true;
     this.ingredientes = ['Calamares','Pan','Salsa Ali-oli','Limón'];
+    this.show = false;
   }
     
   ngOnInit() {
@@ -34,6 +36,11 @@ export class RecetaComponent implements OnInit {
   sumarLikes(){
     this.likes++;
     console.log('Click sumarlike');
+  }
+
+  showIngre(){
+    this.show=!this.show;
+  
   }
 
 }
