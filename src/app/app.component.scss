@@ -1,0 +1,9 @@
+@import '../styles.scss';
+
+h1{
+    color:$primary-color;
+    text-align: center;
+}
+body > .container{
+    padding-top: 60px;
+}
