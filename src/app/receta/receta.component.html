@@ -1,24 +1,23 @@
 <div class="row">
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
-      <img src={{imagen}} alt="{{nombre}}">
-      <img src="assets/img/gluten_icon.png" *ngIf="!isGlutenFree" alt="Con Gluten" class="logo">
-      <img src="assets/img/gluten_free_icon.png" *ngIf="isGlutenFree" alt="Sin Gluten" class="logo">
+      <img src={{receta.imagen}} alt="{{receta.nombre}}">
+      <img src="assets/img/gluten_icon.png" *ngIf="!receta.isGlutenFree" alt="Con Gluten" class="logo">
+      <img src="assets/img/gluten_free_icon.png" *ngIf="receta.isGlutenFree" alt="Sin Gluten" class="logo">
       <div class="caption">
-        <h3>{{nombre | uppercase}}</h3>
-        <p>{{descripcion | slice:0:20}}...</p>
+        <h3>{{receta.nombre | uppercase}}</h3>
+        <p>{{receta.descripcion | slice:0:100}}...</p>
         <p>
-          <span class="cocinero">{{cocinero}}</span>
-          <span class="label label-danger" (click)="sumarLikes()">Likes {{likes}}</span>
+          <span class="cocinero">{{receta.cocinero}}</span>
+          <span class="label label-danger" (click)="sumarLikes()">Likes {{receta.likes}}</span>
         </p>
         <section class="ingredientes">
-          <h4 (click)="showIngre()">Ingredientes
-            <span data-toggle="collapse" *ngIf="!show" data-target="#ingredientes" class="btnBajar glyphicon glyphicon-menu-down" aria-hidden="true"></span>
-            <span data-toggle="collapse" *ngIf="show" data-target="#ingredientes" class="btnBajar glyphicon glyphicon-menu-up" aria-hidden="true"></span>
+          <h4 (click)="showIngre()">Ingredientes <span class="badge">{{receta.ingredientes.length}}</span>
+            <span class="btnBajar glyphicon {{glyphicon}}" aria-hidden="true"></span>
           </h4>
-          <div id="ingredientes" class="collapse">
+          <div id="ingredientes" *ngIf="show">
               <ol>
-                  <li *ngFor="let ingre of ingredientes">
+                  <li *ngFor="let ingre of receta.ingredientes">
                     {{ingre}}
                   </li>
                 </ol>

@@ -1,0 +1,14 @@
+<section id="propiedades">
+  <h2>Propiedades</h2>
+  <p>Componente para jugar con las <b>propiedades</b> en Angular. Página 38 del manual</p>
+  <p [style.color]="color"> Se le asigna un color a través del una propiedad: [style.color]="color"</p>
+  <p [style.color]="pink"> Se le asigna un color a través del literal: [style.color]="pink"</p>
+
+  <h3>Propiedad [hidden]</h3>
+  <p [hidden]="!ocultar">VISIBLE Podemos usar el operador de negación
+    <b>"!"</b>.</p>
+  <p [hidden]="ocultar">OCULTADO No se muestra (mediante CSS).Se le pone de forma automática "display:none"</p>
+
+  <h3>Propiedad HREF</h3>
+  <a [href]="enlace">API Angular</a>
+</section>
