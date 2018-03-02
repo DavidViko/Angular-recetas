@@ -1,29 +1,29 @@
 <div class="row">
   <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src={{receta.imagen}} alt="{{receta.nombre}}">
-      <img src="assets/img/gluten_icon.png" *ngIf="!receta.isGlutenFree" alt="Con Gluten" class="logo">
-      <img src="assets/img/gluten_free_icon.png" *ngIf="receta.isGlutenFree" alt="Sin Gluten" class="logo">
-      <div class="caption">
-        <h3>{{receta.nombre | uppercase}}</h3>
-        <p>{{receta.descripcion | slice:0:100}}...</p>
-        <p>
-          <span class="cocinero">{{receta.cocinero}}</span>
-          <span class="label label-danger" (click)="sumarLikes()">Likes {{receta.likes}}</span>
-        </p>
-        <section class="ingredientes">
-          <h4 (click)="showIngre()">Ingredientes <span class="badge">{{receta.ingredientes.length}}</span>
-            <span class="btnBajar glyphicon {{glyphicon}}" aria-hidden="true"></span>
-          </h4>
-          <div id="ingredientes" *ngIf="show">
-              <ol>
-                  <li *ngFor="let ingre of receta.ingredientes">
-                    {{ingre}}
-                  </li>
-                </ol>
-          </div> 
-        </section>
-      </div>
-    </div>
+      <div class="thumbnail">
+          <img src={{receta.imagen}} alt="{{receta.nombre}}">
+          <img src="assets/img/gluten_icon.png" *ngIf="!receta.isGlutenFree" alt="Con Gluten" class="logo">
+          <img src="assets/img/gluten_free_icon.png" *ngIf="receta.isGlutenFree" alt="Sin Gluten" class="logo">
+          <div class="caption">
+            <h3>{{receta.nombre | uppercase}}</h3>
+            <p>{{receta.descripcion | slice:0:100}}...</p>
+            <p>
+              <span class="cocinero">{{receta.cocinero}}</span>
+              <span class="label label-danger" (click)="sumarLikes()">Likes {{receta.likes}}</span>
+            </p>
+            <section class="ingredientes">
+              <h4 (click)="showIngre()">Ingredientes <span class="badge">{{receta.ingredientes.length}}</span>
+                <span class="btnBajar glyphicon {{glyphicon}}" aria-hidden="true"></span>
+              </h4>
+              <div id="ingredientes" *ngIf="show">
+                  <ol>
+                      <li *ngFor="let ingre of receta.ingredientes">
+                        {{ingre}}
+                      </li>
+                    </ol>
+              </div> 
+            </section>
+          </div>
+        </div>
   </div>
 </div>
