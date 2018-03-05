@@ -1,0 +1,12 @@
+a{
+    text-decoration: none;
+}
+
+.active a{
+    color: #FFF;
+}
+
+li.active2, li.active2:hover{
+    background-image: linear-gradient(to bottom,#c2b82d 0,#c7bc25 100%);
+    border-color: #c2b82d;
+}

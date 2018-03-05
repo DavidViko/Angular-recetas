@@ -7,19 +7,23 @@ export class Coche {
 
     //características
     puertas:number;
-    potencia: number;
+    caballos: number;
     consumo: number;
 
-    constructor(marca: string, modelo: string, version?: string) {//el caracter "?" significa que es un atributo opcional
-        this.id = -1;
+    constructor(marca: string, modelo: string, version?: string, foto?:string, id?: number, puertas?:number, caballos?:number,consumo?:number) {//el caracter "?" significa que es un atributo opcional
         this.marca = marca;
         this.modelo = modelo;
         this.version = version;
-        this.foto = 'assets/img/coche-default.jpg';
-        
-        this.puertas= 0;
-        this.potencia = 0;
-        this.consumo = 0 ;
+        if ( foto ){
+            this.foto = foto;
+        }else{
+            this.foto = 'assets/imgs/coche_default.jpg';
+        }   
+         
+        this.id = id;
+        this.puertas= puertas;
+        this.caballos = caballos;
+        this.consumo = consumo ;
     }
 
 }
