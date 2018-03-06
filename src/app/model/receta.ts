@@ -8,16 +8,22 @@ export class Receta {
     likes: number;
     isGlutenFree: boolean;
     ingredientes: string[];
+    id: number;
 
-    constructor(nombre: string, cocinero: string = "Anonimo") {
+    constructor(nombre: string, cocinero: string = "Anonimo", imagen?: string, descripcion?:string, likes?:number,isGlutenFree?:boolean,ingredientes?:string[],id?:number) {
         console.log("Receta constructor");
         this.nombre = nombre;
-        this.imagen= "assets/img/receta-default.jpg";
-        this.descripcion= "";
-        this.cocinero= cocinero;
-        this.likes= 0;
-        this.isGlutenFree= false;
-        this.ingredientes= [];
+        if ( imagen ){
+            this.imagen =imagen;
+        }else{
+            this.imagen = 'assets/imgs/coche_default.jpg';
+        }   
+        this.descripcion = descripcion;
+        this.cocinero = cocinero;
+        this.likes = likes;
+        this.isGlutenFree = isGlutenFree;
+        this.ingredientes = ingredientes;
+        this.id = id;
     }
 
     addIngrediente(ingrediente:string){

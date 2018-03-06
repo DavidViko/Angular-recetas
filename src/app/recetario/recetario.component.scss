@@ -1,0 +1,21 @@
+.buscador{
+    margin: 2% auto;
+}
+input[type=button]{
+    float:left;
+    width:13%;
+    margin-right:2%;
+}
+
+input{
+    width: 85%;
+}
+
+a{
+    text-decoration: none;
+}
+
+.active a{
+    color: #FFF;
+}
+

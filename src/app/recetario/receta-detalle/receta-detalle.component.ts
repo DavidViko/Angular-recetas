@@ -7,10 +7,13 @@ import { Receta } from '../../model/receta';
   styleUrls: ['./receta-detalle.component.scss']
 })
 export class RecetaDetalleComponent implements OnInit {
-  @Input('r1') c1: Receta;
-  constructor() { }
+  @Input('r1') receta: Receta;
+  constructor() {
+    console.log ("Constructor receta-detalle.component");
+   }
 
   ngOnInit() {
+    console.log ("onInit receta-detalle.component");
   }
 
 }

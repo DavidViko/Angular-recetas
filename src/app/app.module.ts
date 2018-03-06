@@ -7,6 +7,7 @@ import { AppRoutes} from './app.routes';
 
 // Services
 import { CochesService } from './providers/coches.service';
+import { RecetasService } from './providers/recetas.service';
 
 //Componentes
 import { AppComponent } from './app.component';
@@ -22,6 +23,8 @@ import { ListadoComponent } from './concesionario/listado/listado.component';
 // Pipes
 import { RoundPipe } from './pipes/archivo.pipes';
 import { FilterCochePipe } from './pipes/filterCoche.pipe';
+import { FilterRecetaPipe } from './pipes/filterReceta.pipe';
+import { GlutenPipe } from './pipes/gluten.pipe';
 
 // Pagina recetas 2
 import { RecetarioComponent } from './recetario/recetario.component';
@@ -40,6 +43,8 @@ import { RecetaDetalleComponent } from './recetario/receta-detalle/receta-detall
     ListadoComponent,
     RoundPipe,
     FilterCochePipe,
+    FilterRecetaPipe,
+    GlutenPipe,
     RecetarioComponent,
     RecetaDetalleComponent
   ],
@@ -49,7 +54,8 @@ import { RecetaDetalleComponent } from './recetario/receta-detalle/receta-detall
     FormsModule
   ],
   providers: [
-    CochesService
+    CochesService,
+    RecetasService
   ],
   bootstrap: [AppComponent]
 })

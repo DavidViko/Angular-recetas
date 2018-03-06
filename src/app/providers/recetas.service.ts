@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MOCKS_COCHES } from './mocks.coches';
+import { MOCKS_RECETARIO } from './mocks.recetario';
 import { element } from 'protractor';
 import { Receta } from '../model/receta';
 
@@ -14,31 +14,28 @@ export class RecetasService {
    * Retorna todos los Coches que tenemos en Stock
   */
   getAll():Receta[]{
-    console.log('CochesService getAll');
-    let coches:Coche[] = [];
-    let coche;
+    console.log('RecetasService getAll');
+    let recetas:Receta[] = [];
+    let rec;
     
-    let jsonData = JSON.parse(MOCKS_COCHES.stock);
+    let jsonData = JSON.parse(MOCKS_RECETARIO.recetario);
 
     jsonData.forEach( element => {
-      
-        coche = new Coche( 
-                          element.marca, 
-                          element.modelo,
-                          element.version,
-                          element.foto,
-                          element.id,
-                          element.puertas,
-                          element.caballos,
-                          element.consumo
+              rec = new Receta( 
+                          element.nombre,
+                          element.cocinero, 
+                          element.imagen,
+                          element.descripcion,    
+                          element.likes,
+                          element.isGlutenFree,
+                          element.ingredientes,
+                          element.id
                           );
 
-        coches.push(coche);
+        recetas.push(rec);
 
     });
 
-    return coches;
+    return recetas;
   }
-
-
 }
