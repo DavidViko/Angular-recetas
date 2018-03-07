@@ -11,6 +11,7 @@ import { } from 'events';
 export class RecetarioComponent implements OnInit {
   recetario: Array<Receta>; // o tb: Receta[]
   recetaSelec: Receta;
+  glutenFilter : boolean;
   @Output() eventoEmitir = new EventEmitter();
 
   constructor(public recetasService: RecetasService) {
@@ -30,10 +31,11 @@ export class RecetarioComponent implements OnInit {
   }
 
   toggleBoton() {
-    var element = document.getElementById("btnGluten");
-    var numClases = element.classList.length;
+    var etiqueta = document.getElementById("lblGluten");
 
-    element.classList.toggle("btn-danger", numClases > 2);
-    element.classList.toggle("btn-danger", numClases <= 1);
+    var numClases = etiqueta.classList.length;
+    etiqueta.classList.toggle("btn-danger", numClases > 2);
+    etiqueta.classList.toggle("btn-danger", numClases <= 1);
   }
+
 }

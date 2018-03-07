@@ -1,16 +1,20 @@
-  <div class="buscador">
-    <input id = "btnGluten" class = "btn-danger btn-success" (click) = "toggleBoton()" type = "checkbox" value = "Sin Gluten"> Gluten
-    <input [(ngModel)]="searchText" placeholder="Busca por receta o cocinero">
-  </div>
-  <div class="row">
+<app-formulario></app-formulario>
+
+<div class="buscador" ng-controller="ExampleController">
+  
+  <input [(ngModel)]="searchText" placeholder="Busca por receta o cocinero o ingredientes">
+</div>
+<div class="row">
   <div class="stock col-xs-12 col-sm-3">
     <div class="panel panel-info">
       <div class="panel-heading">
         <h3 class="panel-title">LISTADO RECETAS</h3>
       </div>
     </div>
+    <input [(ngModel)]="glutenFilter" id="checkboxGluten" type="checkbox" class="form-inline">
+    <label for="glutenFilter">Recetas Sin Gluten</label>
     <ul class="list-group">
-      <li class="list-group-item" *ngFor="let receta of recetario | filter: searchText | filterGluten" [class.active]="receta==recetaSelec">
+      <li class="list-group-item" *ngFor="let receta of recetario | filter: searchText: glutenFilter" [class.active]="receta==recetaSelec">
         <a (click)="seleccionar($event,receta)">{{receta.nombre}}</a>
       </li>
     </ul>

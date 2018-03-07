@@ -18,7 +18,7 @@ export class MOCKS_RECETARIO {
 		"imagen": "http://www.codigococina.com/wp-content/uploads/2016/05/rabo_toro_receta_tradicional.jpg",
 		"ingredientes" : ["300gr rabo de toro","5 dientes de ajo","1 cebolla grande","2 pimientos verdes","2 tomates maduros"],
 		"descripcion": "Se trata de un guiso muy sabroso, contundente y lleno de tradición en nuestro país. La mayor parte de ‘rabos de toro’ que están a la venta en las carnicerías son de vaca o buey, pues los que provienen del toro de lidia son escasos y suelen ir a parar a los mejores restaurantes.",
-		"isGlutenFree": false
+		"isGlutenFree": true
 	},
 	{
 		"id": 3,

@@ -1,0 +1,60 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalReceta">
+  Crear Nueva Receta
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="modalReceta" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" id="btn-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Nueva Receta</h4>
+      </div>
+      <div class="modal-body">
+        {{formulario.value |json}}<br>
+        {{formulario.status |json}}
+        
+        <form [formGroup]="formulario" (ngSubmit)="submit($event)" novalidate>
+          <div class="stock col-xs-12 col-sm-6">
+            <div class="form-group">
+              <label for="nombre">Nombre:</label>
+              <input formControlName="nombre" placeholder="Nombre">
+              <p *ngIf="formulario.controls.nombre.invalid && formulario.controls.nombre.touched" class="text-danger"> Nombre Obligatorio, mínimo 2 letras</p>
+            </div>
+            <div class="form-group">
+              <label for="cocinero">Cocinero:</label>
+              <input formControlName="cocinero" placeholder="Cocinero">
+              <p *ngIf="formulario.controls.cocinero.invalid && formulario.controls.cocinero.touched" class="text-danger"> Mínimo 2 letras</p>
+            </div>
+            <div class="form-group">
+              <label> ¿Contiene Gluten?
+                <br>
+                <input name="gluten" formControlName="gluten" checked type="radio" value="false"> SI
+              </label>
+              <label>
+                <input name="gluten" formControlName="gluten" type="radio" value="true"> NO
+              </label>
+              <br/>
+            </div>
+          </div>
+          <div class="stock col-xs-12 col-sm-6">
+            <img src="(formulario.value.imagen=='')?'assets/img/receta-default.jpg':'formulario.value.imagen'">
+            <label for="imagen">Imagen:</label>
+            <input formControlName="imagen" placeholder="URL de la Imagen">
+          </div>
+          <div class="stock col-xs-12 col-sm-12">
+            <label for="descripcion">Descripcion:</label>
+            <br>
+            <textarea id="textarea" formControlName="descripcion" rows="5"></textarea>
+          </div>
+
+
+          <input type="submit" [disabled]="!formulario.valid" class="btn btn-block btn-success" value="Crear">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
