@@ -1,0 +1,71 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalReceta">
+  Crear Nueva Receta
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="modalReceta" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" id="btn-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Nuevo Coche</h4>
+      </div>
+      <div class="modal-body">
+        {{formCoche.value | json}}
+        <br> {{formCoche.status | json}}
+
+        <form [formGroup]="formCoche" (ngSubmit)="submit($event)" novalidate>
+          <div class="stock col-xs-12 col-sm-6">
+            <div [ngClass]="estilosInput(formCoche.controls.marca)">
+              <!--Se sustituye la class noral por la [ngClass] apara darle estilos al validar -->
+              <label for="marca" class="control-label">Marca:</label>
+              <input class="form-control" formControlName="marca" placeholder="Marca">
+              <p *ngIf="formCoche.controls.marca.invalid && formCoche.controls.marca.touched" class="text-danger">Marca Obligatoria</p>
+            </div>
+            <div [ngClass]="estilosInput(formCoche.controls.modelo)">
+              <label for="modelo" class="control-label">modelo:</label>
+              <input class="form-control" formControlName="modelo" placeholder="Modelo">
+              <p *ngIf="formCoche.controls.modelo.invalid && formCoche.controls.modelo.touched" class="text-danger">Modelo Obligatorio</p>
+            </div>
+
+            <div>
+              <label for="version" class="control-label">Versión:</label>
+              <input class="form-control" formControlName="version" placeholder="Versión">
+            </div>
+
+            <div>
+              <label for="puertas" class="control-label">Puertas:</label>
+              <input class="form-control" formControlName="puertas" placeholder="Número de puertas">
+            </div>
+
+            <div>
+              <label for="caballos" class="control-label">Caballos:</label>
+              <input class="form-control" formControlName="caballos" placeholder="Caballos">
+            </div>
+
+            <div>
+              <label for="consumo" class="control-label">Consumo:</label>
+              <input class="form-control" formControlName="consumo" placeholder="Consumo">
+            </div>
+
+          </div>
+          <!-- fin class="stock col-xs-12 col-sm-6"-->
+          <div class="stock col-xs-12 col-sm-6">
+            <div [ngClass]="estilosInput(formCoche.controls.foto)">
+              <img [src]="formCoche.controls.foto.value" alt="Foto del coche">
+              <label for="foto" class="control-label">Foto:</label>
+              <input class="form-control" formControlName="foto" placeholder="URL de la Foto">
+              <p *ngIf="formCoche.controls.foto.invalid && formCoche.controls.foto.touched" class="text-danger">Foto obligatoria</p>
+            </div>
+          </div>
+
+          <input type="submit" [disabled]="!formulario.valid" class="btn btn-block btn-success" value="Crear">
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>

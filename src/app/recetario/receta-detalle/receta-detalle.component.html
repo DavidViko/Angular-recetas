@@ -17,13 +17,11 @@
 </div>
 <div class=" row detalles">
     <div class="col-sm-12 col-md-12">
-    <h3>{{receta.nombre | uppercase}}</h3>
     <section>
       <span class="cocinero">{{receta.cocinero}}</span>
       <span class="label label-danger" (click)="sumarLikes()">Likes {{receta.likes}}</span>
     </section>
     <section>
-      <p>Gluten: {{receta.gluten}}</p>
       <p>{{receta.descripcion}}</p>
     </section>
     </div>

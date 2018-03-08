@@ -5,40 +5,45 @@ import { element } from 'protractor';
 
 @Injectable()
 export class CochesService {
-
-  constructor() { 
+  coches: Coche[]=[];
+  constructor() {
     console.log('CochesService constructor');
   }
 
   /** 
    * Retorna todos los Coches que tenemos en Stock
   */
-  getAll():Coche[]{
+  getAll(): Coche[] {
     console.log('CochesService getAll');
-    let coches:Coche[] = [];
     let coche;
-    
+
     let jsonData = JSON.parse(MOCKS_COCHES.stock);
 
-    jsonData.forEach( element => {
-      
-        coche = new Coche( 
-                          element.marca, 
-                          element.modelo,
-                          element.version,
-                          element.foto,
-                          element.id,
-                          element.puertas,
-                          element.caballos,
-                          element.consumo
-                          );
+    jsonData.forEach(element => {
 
-        coches.push(coche);
+      coche = new Coche(
+        element.marca,
+        element.modelo,
+        element.version,
+        element.foto,
+        element.id,
+        element.puertas,
+        element.caballos,
+        element.consumo
+      );
+
+      this.coches.push(coche);
 
     });
 
-    return coches;
+    return this.coches;
   }
-
+  /**
+     * Crear nuevo coche
+     * @param coche : Coche nuevo
+     */
+  crear(coche: Coche): void {
+    this.coches.unshift(coche);
+  }
 
 }

@@ -14,41 +14,61 @@
         <h4 class="modal-title" id="myModalLabel">Nueva Receta</h4>
       </div>
       <div class="modal-body">
-        {{formulario.value |json}}<br>
-        {{formulario.status |json}}
-        
+        {{formulario.value | json}}
+        <br> {{formulario.status | json}}
+
         <form [formGroup]="formulario" (ngSubmit)="submit($event)" novalidate>
           <div class="stock col-xs-12 col-sm-6">
-            <div class="form-group">
-              <label for="nombre">Nombre:</label>
-              <input formControlName="nombre" placeholder="Nombre">
+            <div [ngClass]="estilosInput(formulario.controls.nombre)">
+              <!-- Se sustituye la class noral por la [ngClass] apara darle estilos al validar -->
+              <label for="nombre" class="control-label">Nombre:</label>
+              <input class="form-control" formControlName="nombre" placeholder="Nombre">
               <p *ngIf="formulario.controls.nombre.invalid && formulario.controls.nombre.touched" class="text-danger"> Nombre Obligatorio, mínimo 2 letras</p>
             </div>
-            <div class="form-group">
-              <label for="cocinero">Cocinero:</label>
-              <input formControlName="cocinero" placeholder="Cocinero">
-              <p *ngIf="formulario.controls.cocinero.invalid && formulario.controls.cocinero.touched" class="text-danger"> Mínimo 2 letras</p>
+
+            <div [ngClass]="estilosInput(formulario.controls.cocinero)">
+              <label for="cocinero" class="control-label">Cocinero:</label>
+              <input class="form-control" formControlName="cocinero" placeholder="Cocinero">
+              <p *ngIf="formulario.controls.cocinero.invalid && formulario.controls.cocinero.touched" class="text-danger"> Cocinero mínimo 2 letras</p>
             </div>
+
             <div class="form-group">
               <label> ¿Contiene Gluten?
                 <br>
-                <input name="gluten" formControlName="gluten" checked type="radio" value="false"> SI
+                <input name="gluten" formControlName="gluten" type="radio" value="false"> SI
               </label>
               <label>
                 <input name="gluten" formControlName="gluten" type="radio" value="true"> NO
               </label>
               <br/>
             </div>
+
+            <label for="">Ingredientes </label>
+            <a (click)="clickOtroIngrediente()">Añadir Ingrediente</a>
+            <div formArrayName="ingredientes" *ngFor="let ingrediente of formulario.get('ingredientes').controls; let i = index;">
+              <div [formGroupName]="i">
+                <input formControlName="nombre" placeholder="Nuevo Ingrediente" class="ingrediente-input">
+                <span class="glyphicon glyphicon-remove-circle" (click)="clickEliminarIngrediente(i)"></span>
+              </div>
+            </div>
           </div>
+          
+          <!-- fin class="stock col-xs-12 col-sm-6"-->
           <div class="stock col-xs-12 col-sm-6">
-            <img src="(formulario.value.imagen=='')?'assets/img/receta-default.jpg':'formulario.value.imagen'">
-            <label for="imagen">Imagen:</label>
-            <input formControlName="imagen" placeholder="URL de la Imagen">
+            <div [ngClass]="estilosInput(formulario.controls.imagen)">
+              <img [src]="formulario.controls.imagen.value" alt="Imagen de la receta">
+              <label for="imagen" class="control-label">Imagen:</label>
+              <input class="form-control" formControlName="imagen" placeholder="URL de la Imagen">
+              <p *ngIf="formulario.controls.imagen.invalid && formulario.controls.imagen.touched" class="text-danger">Foto obligatoria</p>
+            </div>
+
           </div>
           <div class="stock col-xs-12 col-sm-12">
-            <label for="descripcion">Descripcion:</label>
-            <br>
-            <textarea id="textarea" formControlName="descripcion" rows="5"></textarea>
+            <div [ngClass]="estilosInput(formulario.controls.descripcion)">
+              <label for="descripcion" class="control-label">Descripcion:</label>
+              <br>
+              <textarea id="textarea" class="form-control" formControlName="descripcion" rows="5"></textarea>
+            </div>
           </div>
 
 

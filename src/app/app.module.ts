@@ -19,6 +19,7 @@ import { UsuarioComponent } from './usuario/usuario.component';
 import { ConcesionarioComponent } from './concesionario/concesionario.component';
 import { CocheComponent } from './concesionario/coche/coche.component';
 import { ListadoComponent } from './concesionario/listado/listado.component';
+import { FormCochesComponent } from './concesionario/listado/form-coches/form-coches.component';
 
 // Pipes
 import { RoundPipe } from './pipes/archivo.pipes';
@@ -29,6 +30,7 @@ import { FilterRecetaPipe } from './pipes/filterReceta.pipe';
 import { RecetarioComponent } from './recetario/recetario.component';
 import { RecetaDetalleComponent } from './recetario/receta-detalle/receta-detalle.component';
 import { FormularioComponent } from './recetario/formulario/formulario.component';
+
 
 @NgModule({
   declarations: [
@@ -46,7 +48,8 @@ import { FormularioComponent } from './recetario/formulario/formulario.component
     FilterRecetaPipe,
     RecetarioComponent,
     RecetaDetalleComponent,
-    FormularioComponent
+    FormularioComponent,
+    FormCochesComponent
   ],
   imports: [
     BrowserModule,

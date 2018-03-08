@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Coche } from '../model/coche';
 @Pipe({
-  name: 'filter'
+  name: 'filterCoche'
 })
 export class FilterCochePipe implements PipeTransform {
 /**
@@ -11,7 +11,7 @@ export class FilterCochePipe implements PipeTransform {
  */
   transform(items: Coche[], searchText: string): Coche[] {
 
-    if(!items) return []; // Si no elemetos en el array
+    if(!items) return []; // Si no elementos en el array
     if(!searchText) return items; // Si no hay criterio de búsqueda
     searchText = searchText.toLowerCase(); //Pasa a minuscula la búsqueda
     let marcaModelo = "";
