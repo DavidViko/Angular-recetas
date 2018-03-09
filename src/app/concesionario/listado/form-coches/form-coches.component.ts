@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl, FormArray } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import * as $ from 'jquery';
 import { CochesService } from '../../../providers/coches.service';
 import { Coche } from '../../../model/coche';
@@ -17,6 +17,7 @@ export class FormCochesComponent implements OnInit {
     console.log('FormCochesComponent constructor');
     this.crearFormulario();
   }
+  
   ngOnInit() {
   }
 
@@ -28,8 +29,8 @@ export class FormCochesComponent implements OnInit {
       marca: ['', [Validators.required, Validators.minLength(2)]],
       modelo: ['', [Validators.minLength(3)]],
       version: [''],
-      imagen: ['assets/img/receta-default.jpg', [Validators.required]],
-      puertas: [3,],
+      foto: ['assets/img/coche-default.jpg', [Validators.required]],
+      puertas: [3],
       caballos: [100],
       consumo: [7],
     });
@@ -43,9 +44,9 @@ export class FormCochesComponent implements OnInit {
     // let receta = new Receta(nombre, cocinero, imagen, descripcion, 0, gluten);
     this.cochesService.crear(coche);
 
-    //limpiar Formulario y poner un solo ingrediente
+    //limpiar Formulario
     this.formCoche.reset({
-      imagen: "assets/img/coche-default.jpg",
+      foto: "assets/img/coche-default.jpg",
     });
 
     $('#btn-close').click(); // Para cerrar la modal obliga a hacer click en la X, que tiene asociada la función cerrado
@@ -62,20 +63,20 @@ export class FormCochesComponent implements OnInit {
     return coche;
   }
 
-  /**
-   * Nos retorna las clases para darle estilos al div
-   * @param control 
-   */
-  estilosInput(control: FormControl): string {
-    const CLASS_ERROR = "form-group has-error";
-    const CLASS_SUCCESS = "form-group has-success";
+  // /**
+  //  * Nos retorna las clases para darle estilos al div
+  //  * @param control 
+  //  */
+  // estilosInput(control: FormControl): string {
+  //   const CLASS_ERROR = "form-group has-error";
+  //   const CLASS_SUCCESS = "form-group has-success";
 
-    if (control.dirty) {
-      return (control.valid) ? CLASS_SUCCESS : CLASS_ERROR;
-    } else {
-      return "form-group"
-    }
-  }
+  //   if (control.dirty) {
+  //     return (control.valid) ? CLASS_SUCCESS : CLASS_ERROR;
+  //   } else {
+  //     return "form-group"
+  //   }
+  // }
 
 
 }

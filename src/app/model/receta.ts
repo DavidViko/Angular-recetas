@@ -16,7 +16,7 @@ export class Receta {
         if (imagen) {
             this.imagen = imagen;
         } else {
-            this.imagen = 'assets/imgs/coche_default.jpg';
+            this.imagen = 'assets/img/receta_default.jpg';
         }
         this.descripcion = descripcion;
         this.cocinero = cocinero;

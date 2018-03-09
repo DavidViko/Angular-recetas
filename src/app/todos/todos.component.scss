@@ -1,0 +1,32 @@
+#todos{
+    /* The image used */
+    background-image: url("/assets/img/img_parallax.jpg");
+
+    /* Full height */
+    height: 100%; 
+    min-height: 80vh;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+}
+
+section{
+    background-color: rgba(255,255,255,0.7);
+    margin:auto;
+    width: 30vw;
+
+    h2{
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    ul{
+        list-style-type: none;
+        font-size: 1.5em;
+    }
+    input[type=checkbox]{
+        margin-right: 10px;
+    }
+}

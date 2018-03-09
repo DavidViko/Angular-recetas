@@ -58,7 +58,10 @@ export class FormularioComponent implements OnInit {
 
   clickEliminarIngrediente(index) {
     console.log('FormularioComponent clickEliminarIngrediente');
-    this.ingredientes.removeAt(index);
+    if (this.ingredientes.length > 1) {
+      this.ingredientes.removeAt(index);
+    }
+
   }
 
   submit(): void {

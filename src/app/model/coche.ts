@@ -17,7 +17,7 @@ export class Coche {
         if ( foto ){
             this.foto = foto;
         }else{
-            this.foto = 'assets/imgs/coche_default.jpg';
+            this.foto = 'assets/img/coche_default.jpg';
         }   
          
         this.id = id;

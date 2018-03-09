@@ -1,10 +1,10 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalReceta">
-  Crear Nueva Receta
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalCoche">
+  Crear Nuevo Coche
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="modalReceta" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="modalCoche" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -19,13 +19,15 @@
 
         <form [formGroup]="formCoche" (ngSubmit)="submit($event)" novalidate>
           <div class="stock col-xs-12 col-sm-6">
-            <div [ngClass]="estilosInput(formCoche.controls.marca)">
+            <div>
+              <!--[ngClass]="estilosInput(formCoche.controls.marca)"-->
               <!--Se sustituye la class noral por la [ngClass] apara darle estilos al validar -->
               <label for="marca" class="control-label">Marca:</label>
               <input class="form-control" formControlName="marca" placeholder="Marca">
               <p *ngIf="formCoche.controls.marca.invalid && formCoche.controls.marca.touched" class="text-danger">Marca Obligatoria</p>
             </div>
-            <div [ngClass]="estilosInput(formCoche.controls.modelo)">
+            <div>
+              <!--[ngClass]="estilosInput(formCoche.controls.modelo)"-->
               <label for="modelo" class="control-label">modelo:</label>
               <input class="form-control" formControlName="modelo" placeholder="Modelo">
               <p *ngIf="formCoche.controls.modelo.invalid && formCoche.controls.modelo.touched" class="text-danger">Modelo Obligatorio</p>
@@ -54,7 +56,8 @@
           </div>
           <!-- fin class="stock col-xs-12 col-sm-6"-->
           <div class="stock col-xs-12 col-sm-6">
-            <div [ngClass]="estilosInput(formCoche.controls.foto)">
+            <div>
+              <!--[ngClass]="estilosInput(formCoche.controls.foto)"-->
               <img [src]="formCoche.controls.foto.value" alt="Foto del coche">
               <label for="foto" class="control-label">Foto:</label>
               <input class="form-control" formControlName="foto" placeholder="URL de la Foto">
@@ -62,7 +65,7 @@
             </div>
           </div>
 
-          <input type="submit" [disabled]="!formulario.valid" class="btn btn-block btn-success" value="Crear">
+          <input type="submit" [disabled]="!formCoche.valid" class="btn btn-block btn-success" value="Crear">
         </form>
 
       </div>
