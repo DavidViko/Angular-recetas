@@ -1,13 +1,16 @@
 <div id="todos">
   <section>
     <h2>Lista Tareas</h2>
-    <input type="text"><span class= "glyphicon glyphicon-plus" (click)="agregarTarea()"></span>
+    <input type="text" [(ngModel)]="nuevaTarea" placeholder="Nueva Tarea">
+    <span class= "glyphicon glyphicon-plus-sign" (click)="agregarTarea()"></span>
     <ul>
       <li *ngFor = "let todo of todos">
-        <input type="checkbox" [checked]="todo.completed" (click)="clickar(todo.id)">{{todo.id}} {{todo.title}}
-        <span class= "glyphicon glyphicon-trash" (click)="eliminarTarea(todo.id)"></span>
+        
+        <input type="checkbox" [checked]="todo.completed" (click)="clicar(todo)">
+        <span  [class]="(todo.completed)?'terminada':''" >{{todo.id}} {{todo.title}}</span>
+        
+        <span class= "glyphicon glyphicon-trash" (click)="eliminarTarea(todo)"></span>
       </li>
     </ul>
   </section>
-
 </div>

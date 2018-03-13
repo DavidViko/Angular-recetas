@@ -15,28 +15,10 @@
   ],
   "todos": [
     {
-      "id": 1,
-      "idUser": 2,
-      "title": "Leer más",
-      "completed": false
-    },
-    {
-      "id": 2,
-      "idUser": 2,
-      "title": "Aprender angular",
-      "completed": true
-    },
-    {
       "id": 3,
       "idUser": 2,
       "title": "Leer más",
       "completed": false
-    },
-    {
-      "id": 4,
-      "idUser": 2,
-      "title": "Aprender angular",
-      "completed": true
     },
     {
       "id": 5,
@@ -45,10 +27,16 @@
       "completed": false
     },
     {
-      "id": 6,
-      "idUser": 2,
-      "title": "Aprender angular",
-      "completed": true
+      "userId": -1,
+      "title": "hola",
+      "completed": false,
+      "id": 7
+    },
+    {
+      "userId": -1,
+      "title": "comer mas",
+      "completed": false,
+      "id": 9
     }
   ],
   "profile": {
